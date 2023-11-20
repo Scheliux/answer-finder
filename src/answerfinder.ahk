@@ -1,4 +1,4 @@
-﻿#Include, json.ahk
+﻿#Include, lib/json.ahk
 
 CoordMode, ToolTip, Screen
 FileEncoding, UTF-8
