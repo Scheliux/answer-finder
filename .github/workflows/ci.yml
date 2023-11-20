@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build with AHK v1.1.37.01
+        uses: nukdokplex/autohotkey-build@v0.1
+        with:
+          version: v1.1.37.01
+          x64: true
+          x86: true
+          compression: upx
+          in: "src/"
+          out: build
+          icon: "icons"
+      - name: Do domething with builded scripts
+        shell: pwsh
+        run: |
+          ls build
